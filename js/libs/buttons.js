@@ -53,6 +53,9 @@ function redirect(){
 	    	}
 	    }
 }
+setTimeout(function(){
+	$('#iniciar').prop( "disabled", false );	
+},5000);
 $(document).ready(function () {
 		request_interacao = jQuery.ajax({
 	      	crossDomain: true,
@@ -70,9 +73,11 @@ $(document).ready(function () {
 	      	crossDomain: true,
 	      	url: "https://script.google.com/macros/s/AKfycbzLOg-MT8Zic3zc1fQGDCPl6Upu769FP75yT3KPlpb1LYO0NNTh/exec",
 	      	method: "GET",
-	      	dataType: "json",
+	      	dataType: "json"
 	    });
+	$('#iniciar').prop( "disabled", true );
 	$('#iniciar').click(function(){
 		redirect();
     });
+
 });
